@@ -37,3 +37,7 @@ button {
   font-size: var(--medium-font);
   font-weight: normal;
 }
+
+:focus {
+  outline: transparent;
+}
