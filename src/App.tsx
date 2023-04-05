@@ -1,19 +1,16 @@
 import styles from './styles/App.module.css';
 
 import { Header } from './components/Header';
+import { ToDoForm } from './components/ToDoForm';
+import { ToDoList } from './components/ToDoList';
 
 export function App(): JSX.Element {
   return (
     <>
       <Header />
       <main className={styles.contentWrapper}>
-        <form className={styles.form}>
-          <input type="text" placeholder="Adicione uma nova tarefa" />
-          <button>Criar</button>
-        </form>
-        <div>
-          <header></header>
-        </div>
+        <ToDoForm />
+        <ToDoList />
       </main>
     </>
   );
