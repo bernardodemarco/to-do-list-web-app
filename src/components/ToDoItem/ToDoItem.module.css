@@ -34,11 +34,22 @@
 
   border: 2px solid var(--blue);
   border-radius: 999px;
+
+  transition: border 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .checkBox.checked {
   border: none;
   background-color: var(--purple-dark);
+}
+
+.toDo p {
+  transition: color 0.175s ease-in-out, text-decoration 0.175s ease-in-out;
+}
+
+.hasLineThrough {
+  color: var(--gray-300);
+  text-decoration: line-through;
 }
 
 .trashIcon {
