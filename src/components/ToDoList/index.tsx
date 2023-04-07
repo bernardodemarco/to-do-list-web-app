@@ -6,20 +6,32 @@ import { ToDo } from '../../App';
 
 interface ToDoListProps {
   toDos: ToDo[];
+  toggleToDo: (id: string) => void;
+  deleteToDo: (id: string) => void;
 }
 
-export function ToDoList({ toDos }: ToDoListProps): JSX.Element {
-  console.log(toDos);
+export function ToDoList({
+  toDos,
+  toggleToDo,
+  deleteToDo,
+}: ToDoListProps): JSX.Element {
+  const numOfToDos = toDos.length;
+  const numOfCompletedToDos = toDos.filter((toDo) => {
+    return toDo.isChecked === true;
+  }).length;
+
   return (
     <div>
       <header className={styles.header}>
         <div>
           <p className={styles.blueText}>Tarefas criadas</p>
-          <span className={styles.number}>5</span>
+          <span className={styles.number}>{numOfToDos}</span>
         </div>
         <div>
           <p className={styles.purpleText}>Concluídas</p>
-          <span className={styles.number}>2 de 5</span>
+          <span className={styles.number}>
+            {numOfCompletedToDos} de {numOfToDos}
+          </span>
         </div>
       </header>
       <div className={`${styles.toDosWrapper}`}>
@@ -33,6 +45,8 @@ export function ToDoList({ toDos }: ToDoListProps): JSX.Element {
           <>
             {toDos.map((toDo) => (
               <ToDoItem
+                toggleToDo={toggleToDo}
+                deleteToDo={deleteToDo}
                 text={toDo.text}
                 isChecked={toDo.isChecked}
                 id={toDo.id}

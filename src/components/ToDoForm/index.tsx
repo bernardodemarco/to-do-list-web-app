@@ -1,6 +1,6 @@
 import styles from './ToDoForm.module.css';
 
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 import { PlusCircle } from '@phosphor-icons/react';
 
 interface ToDoFormProps {
@@ -17,7 +17,10 @@ export function ToDoForm({ createNewToDo }: ToDoFormProps): JSX.Element {
   const handleCreateNewToDo = (e: FormEvent): void => {
     e.preventDefault();
     createNewToDo(newToDoText);
+    setNewToDoText('');
   };
+
+  const isNewToDoTextEmpty = newToDoText.length === 0;
 
   return (
     <form className={styles.form} onSubmit={handleCreateNewToDo}>
@@ -25,8 +28,9 @@ export function ToDoForm({ createNewToDo }: ToDoFormProps): JSX.Element {
         type="text"
         placeholder="Adicione uma nova tarefa"
         onChange={handleNewToDoTextChange}
+        value={newToDoText}
       />
-      <button>
+      <button disabled={isNewToDoTextEmpty}>
         Criar <PlusCircle size={20} color="#f2f2f2" weight="bold" />
       </button>
     </form>

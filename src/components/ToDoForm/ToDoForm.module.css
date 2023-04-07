@@ -47,6 +47,11 @@
   transition: background-color 0.2s ease-in-out;
 }
 
-.form button:hover {
+.form button:not(:disabled):hover {
   background-color: var(--blue);
+}
+
+.form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
 }

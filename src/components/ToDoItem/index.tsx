@@ -2,20 +2,32 @@ import styles from './ToDoItem.module.css';
 import check from './../../assets/check.svg';
 
 import { Trash } from '@phosphor-icons/react';
-// import { useState } from 'react';
 import { ToDo } from '../../App';
 
-export function ToDoItem({ text, isChecked, id }: ToDo): JSX.Element {
-  // const [isToDoChecked, setIsToDoChecked] = useState(false);
+interface ToDoItem extends ToDo {
+  toggleToDo: (id: string) => void;
+  deleteToDo: (id: string) => void;
+}
 
-  // const handleCheckBoxClick = (): void => {
-  //   setIsToDoChecked((isChecked) => !isChecked);
-  // };
+export function ToDoItem({
+  text,
+  isChecked,
+  id,
+  toggleToDo,
+  deleteToDo,
+}: ToDoItem): JSX.Element {
+  const handleCheckBoxClick = (): void => {
+    toggleToDo(id);
+  };
+
+  const handleDeleteToDo = (): void => {
+    deleteToDo(id);
+  };
 
   return (
     <article className={styles.toDo}>
       <button
-        // onClick={handleCheckBoxClick}
+        onClick={handleCheckBoxClick}
         className={
           isChecked ? `${styles.checkBox} ${styles.checked}` : styles.checkBox
         }
@@ -23,7 +35,7 @@ export function ToDoItem({ text, isChecked, id }: ToDo): JSX.Element {
         {isChecked && <img src={check} />}
       </button>
       <p className={isChecked ? styles.hasLineThrough : ''}>{text}</p>
-      <div className={styles.trashIcon}>
+      <div className={styles.trashIcon} onClick={handleDeleteToDo}>
         <Trash color="#808080" />
       </div>
     </article>
