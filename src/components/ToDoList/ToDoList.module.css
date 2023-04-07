@@ -62,6 +62,7 @@
 .toDoNotFound p {
   font-size: var(--large-font);
   margin-bottom: 0.2rem;
+  text-align: center;
 }
 
 .toDoNotFound p:nth-of-type(1) {

@@ -4,7 +4,7 @@ import check from './../../assets/check.svg';
 import { Trash } from '@phosphor-icons/react';
 import { ToDo } from '../../App';
 
-interface ToDoItem extends ToDo {
+interface ToDoItemProps extends ToDo {
   toggleToDo: (id: string) => void;
   deleteToDo: (id: string) => void;
 }
@@ -15,7 +15,7 @@ export function ToDoItem({
   id,
   toggleToDo,
   deleteToDo,
-}: ToDoItem): JSX.Element {
+}: ToDoItemProps): JSX.Element {
   const handleCheckBoxClick = (): void => {
     toggleToDo(id);
   };

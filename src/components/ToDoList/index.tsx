@@ -34,7 +34,13 @@ export function ToDoList({
           </span>
         </div>
       </header>
-      <div className={`${styles.toDosWrapper}`}>
+      <div
+        className={
+          toDos.length === 0
+            ? `${styles.toDosWrapper} ${styles.toDosWrapperWithBorder}`
+            : styles.toDosWrapper
+        }
+      >
         {toDos.length === 0 ? (
           <div className={styles.toDoNotFound}>
             <img src={toDoNotFound} alt="To-do was not found" />

@@ -1,6 +1,6 @@
 import styles from './ToDoForm.module.css';
 
-import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { PlusCircle } from '@phosphor-icons/react';
 
 interface ToDoFormProps {

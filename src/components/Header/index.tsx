@@ -1,5 +1,4 @@
 import styles from './Header.module.css';
-
 import headerLogo from './../../assets/header-logo.svg';
 
 export function Header(): JSX.Element {

@@ -7,3 +7,15 @@
 
   padding: 0 1rem;
 }
+
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+@media (max-width: 350px) {
+  html {
+    font-size: 70%;
+  }
+}

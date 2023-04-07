@@ -18,9 +18,6 @@
 .checkBox {
   margin-right: 0.2rem;
 
-  position: relative;
-  top: 0.1rem;
-
   cursor: pointer;
 
   display: flex;
